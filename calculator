@@ -1,0 +1,47 @@
+urlist=[]
+def new():
+    print("press enter to stop")
+    for i in range(1,100):
+        task=input(f"enter your task: {i}-")
+        if task.strip()=="":
+            print("adding these tasks in your list")
+            break
+        urlist.append(task)
+    print("\nYOUR TASK LIST: ")
+    for x, t in enumerate(urlist, start=1):
+        print(f"{x}. {t}")
+    
+def update_list():
+    up= int(input("Which task do you want to update? "))  
+    if up in range(1, len(urlist) + 1):
+        new = input(f"Enter your new task {up}: ")  
+        urlist[up - 1] = new   
+        print(f"UPDATED LIST IS{urlist}")  
+    else:  
+        print("Invalid task") 
+
+def del_list():
+    r=int(input("which task do you want to delete? "))
+    urlist.pop(r-1)
+    print(f"UPDATED LIST:")
+    for x,t in enumerate(urlist, start=1):
+        print(f"{x}.{t}")
+        
+def main():
+    while True:
+        print("---THIS IS YOUR TO-DO LIST---")
+        print("WHAT DO YOU WANT TO DO?\n 1-add task\n 2-update task\n 3-delete task\n 4-save and exit")
+        option=int(input(("choose any one option(1-5): ")))
+        if option==1:
+            new()
+        elif option==2:
+            update_list()
+        elif option==3:
+            del_list()
+        elif option==4:
+            print("--SAVING AND CLOSING THE LIST--")
+            return
+        else:
+            print("invalid option")
+if __name__=="__main__":
+    main()
