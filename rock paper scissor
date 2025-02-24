@@ -1,0 +1,22 @@
+import random
+print("---ROCK,PAPER,SCISSORS GAME---")
+option=["rock","paper","scissors"]
+while True:
+    user=(input("choose rock,paper or scissors or (type exit to quit): "))
+    if user=="exit":
+        print("THANKS FOR PLAYING!")
+        break
+    if user not in option:
+        print("Invalid choice! Please choose rock, paper, or scissors.\n")
+        continue
+
+    result=random.choice(option)
+    print(f"This is computers choice: {result}")
+    if result==user:
+        print("its a draw🤝")
+    elif (user=="rock" and result=="scissors") or \
+         (user=="scissors" and result=="paper") or\
+         (user=="paper" and result=="rock" ):
+             print("YOU WIN🥳")
+    else: 
+        print("COMPUTER WINS")
